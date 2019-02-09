@@ -10,8 +10,9 @@ Is it possible to improve these metrics?  It could be this semantic information 
 
 To figure this out, I trained a [Siamese network](https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf) to perform the synonym recognition task.  Siamese networks are a technique for transfer learning, used in computer vision:
 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2017/09/07/practical_gan_3.gif)
-*Siamese network illustration, thanks to the [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/combining-deep-learning-networks-gan-and-siamese-to-generate-high-quality-life-like-images/)*
+![Siamese network illustration](siamese.png)
+
+*Siamese network illustration, thanks to the [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/combining-deep-learning-networks-gan-and-siamese-to-generate-high-quality-life-like-images/).*
 
 The Siamese network learns a mapping from the original input space to a new, smaller feature space where inputs of the same class sit near to one another.  This allows it to tell whether two inputs are from the same class even if it's never seen anything from that class before.  For more information, see [this article](https://sorenbouma.github.io/blog/oneshot/).
 
@@ -78,10 +79,10 @@ There does seem to be a tradeoff between synonym & antonym performance.  However
 
 Finally, here's a visualization of how the network trained for the synonym task changed the layout of various words:
 
-![](before.png)
+![t-SNE before](before.png)
 *t-SNE on unmodified 300-dimensional GloVe word vectors*
 
-![](after.png)
+![t-SNE after](after.png)
 *t-SNE after word vectors have been remapped by the network trained for the synonym task.  Synonyms are now closer to each other, and pairs of synonyms are now spaced farther away from other pairs.*
 
 ## Built With
